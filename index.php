@@ -1,7 +1,175 @@
 <?php
 require_once 'header.php';
 ?>
+<style>
+        /* =========================================
+    SERVICE AREA & CONTACT SECTION
+    ========================================= */
 
+    .location-contact-section {
+        background: #f8faf9;
+        position: relative;
+    }
+
+    .location-contact-section .section-header {
+        max-width: 720px;
+        margin: 0 auto 45px;
+    }
+
+    .location-contact-section .section-header h2 {
+        margin-bottom: 12px;
+    }
+
+    .location-contact-section .section-header p {
+        color: #6b7280;
+        line-height: 1.7;
+    }
+
+
+    /* =========================================
+    MAP + CONTACT GRID
+    ========================================= */
+
+    .location-contact-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+
+    /* =========================================
+    MAP CARD
+    ========================================= */
+
+    .map-card {
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 450px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .map-card iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 450px;
+        border: 0;
+    }
+
+
+    /* =========================================
+    CONTACT CARD
+    ========================================= */
+
+    .contact-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contact-label {
+        display: inline-block;
+        color: #2e7d32;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .contact-card h3 {
+        font-size: 32px;
+        margin: 0 0 15px;
+        color: #1f2937;
+    }
+
+    .contact-description {
+        color: #6b7280;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+
+
+    /* =========================================
+    CONTACT INFORMATION
+    ========================================= */
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        margin-bottom: 30px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #e8f5e9;
+        color: #2e7d32;
+        border-radius: 12px;
+        font-size: 19px;
+    }
+
+    .contact-item span {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        color: #2e7d32;
+        margin-bottom: 4px;
+    }
+
+    .contact-item p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.5;
+    }
+
+
+    /* =========================================
+    CONTACT BUTTON
+    ========================================= */
+
+    .contact-card .btn {
+        align-self: flex-start;
+    }
+
+    /* =========================================
+    STATISTICS SECTION TEXT
+    ========================================= */
+
+    .stats-title {
+        color: #ffffff;
+        margin-bottom: 0.75rem;
+    }
+
+    .stats-description {
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+</style>
+<link rel="stylesheet" href="css/style.css">
 <main>
     <section id="home" class="hero-section">
         <div class="container hero-container">
@@ -12,8 +180,7 @@ require_once 'header.php';
                     Streamlining city waste pickup and recycling for healthier communities. Schedule pickups on demand, monitor real-time routes, and keep your neighborhood green.
                 </p>
                 <div class="hero-actions">
-                    <a href="#cta" class="btn btn-primary btn-lg">Get Started</a>
-                    <a href="#schedule" class="btn btn-outline btn-lg">View Schedule</a>
+                    <a href="#" class="btn btn-primary btn-lg js-open-login">Get Started</a>
                 </div>
             </div>
             <div class="hero-image-wrapper reveal-slide-left">
@@ -22,8 +189,8 @@ require_once 'header.php';
                         <svg viewBox="0 0 500 400" width="100%" height="100%">
                             <defs>
                                 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#2E7D32;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+                                    <stop offset="0%" stop-color="#2E7D32" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#1976D2" stop-opacity="1" />
                                 </linearGradient>
                             </defs>
                             <circle cx="250" cy="200" r="160" fill="url(#grad1)" opacity="0.15" />
@@ -174,31 +341,14 @@ require_once 'header.php';
     <!-- 5. STATISTICS SECTION (INITIAL LAUNCH STATE) -->
     <section class="stats-section section-padding">
         <div class="container text-center">
-            <h2 style="color: #ffffff; margin-bottom: 0.75rem;">Building a Cleaner Iligan City Together</h2>
-            <p style="color: rgba(255, 255, 255, 0.85); max-width: 650px; margin: 0 auto;">
+            <h2 class="stats-title">Building a Cleaner Iligan City Together</h2>
+            <p class="stats-description">
                 Our digital waste scheduling system is officially live! As residents, barangay officials, and collection crews register across Iligan City, real-time statistics and analytics will populate here.
             </p>
         </div>
     </section>
 
-    <!-- 6. COLLECTION SCHEDULE PREVIEW (INITIAL LAUNCH STATE) -->
-    <section id="schedule" class="schedule-section section-padding bg-light">
-        <div class="container">
-            <div class="section-header text-center reveal-fade">
-                <h2>Weekly Collection Schedule Preview</h2>
-                <p>Detailed barangay-level route schedules will appear here once initial zone registrations are finalized.</p>
-            </div>
-
-            <div class="empty-state-card reveal-fade">
-                <div class="empty-state-icon">📅</div>
-                <h3>No Active Schedules Posted Yet</h3>
-                <p>Collection routes for Iligan City barangays are currently being mapped and configured. Check back soon or create an account to receive schedule announcements for your specific zone.</p>
-                <a href="#" class="btn btn-outline btn-sm js-open-login" data-tab="register" style="margin-top: 1rem;">Register Your Barangay Household</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. TESTIMONIALS SECTION (INITIAL LAUNCH STATE) -->
+<!-- 7. TESTIMONIALS SECTION (INITIAL LAUNCH STATE) -->
     <section class="testimonials-section section-padding">
         <div class="container">
             <div class="section-header text-center reveal-fade">
@@ -214,68 +364,81 @@ require_once 'header.php';
         </div>
     </section>
 
-    <!-- 8. FREQUENTLY ASKED QUESTIONS -->
-    <section id="faq" class="faq-section section-padding bg-light">
-        <div class="container">
-            <div class="section-header text-center reveal-fade">
-                <h2>Frequently Asked Questions</h2>
-            </div>
+    <!-- 7. SERVICE AREA & CONTACT SECTION -->
+<section id="contact" class="location-contact-section section-padding">
+    <div class="container">
 
-            <div class="accordion-container reveal-fade">
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>How does real-time truck tracking work?</span>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Once logged in, open the "Live Map" tab in your dashboard. You can view the live GPS signal of the assigned vehicle as it navigates through your collection zone.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>How do I schedule a special pickup for bulky items?</span>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Log in to your account, click on "Request Pickup", choose "Bulky Item", select an available day, and specify the items (e.g., furniture, appliances).</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>What happens if my scheduled pickup is missed?</span>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>If your bin was placed out on time and was missed, you can submit a "Missed Collection" report directly on your dashboard for same-day dispatch re-routing.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Are electronic wastes (e-waste) accepted in regular bins?</span>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>No, electronic devices contain hazardous materials and must be scheduled under the "E-Waste Disposal" category or taken to a designated drop-off depot.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="section-header text-center reveal-fade">
+            <h2>Our Service Area</h2>
+            <p>
+                Find us in Barangay Poblacion, Iligan City and get in touch
+                with our support team for questions about waste collection services.
+            </p>
         </div>
-    </section>
 
-    <!-- 9. CALL TO ACTION SECTION -->
-    <section id="cta" class="cta-section section-padding">
-        <div class="container text-center reveal-fade">
-            <h2 class="cta-title">Ready for a Cleaner Environment?</h2>
-            <p class="cta-subtitle">Join thousands of residents actively transforming municipal waste management today.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-secondary btn-lg js-open-login" data-tab="register">Create an Account</a>
-                <a href="#contact" class="btn btn-outline-white btn-lg">Contact Support</a>
+        <div class="location-contact-grid">
+
+            <!-- MAP -->
+            <div class="map-card reveal-slide-right">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.1840961705204!2d124.23391334638909!3d8.229242766848605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x325575e7ac009721%3A0x5dd0875c959538f4!2sPoblacion%20Barangay%20Hall!5e0!3m2!1sen!2sph!4v1790219344394!5m2!1sen!2sph"
+                    width="100%"
+                    height="450"
+                    
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
             </div>
+
+            <!-- CONTACT -->
+            <div class="contact-card reveal-slide-left">
+                <span class="contact-label">GET IN TOUCH</span>
+
+                <h3>Need Help?</h3>
+
+                <p class="contact-description">
+                    Have questions about waste collection schedules, reports,
+                    or other services? Our team is here to help.
+                </p>
+
+                <div class="contact-info">
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <span>Location</span>
+                            <p>Barangay Poblacion<br>Iligan City, Philippines</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <span>Email</span>
+                            <p>support@solidwaste.local</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <span>Contact</span>
+                            <p>Contact your Barangay Office</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="#" class="btn btn-primary js-open-login">
+                    Get Started
+                </a>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
 </main>
 

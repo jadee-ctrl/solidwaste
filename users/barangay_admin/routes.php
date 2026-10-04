@@ -8,7 +8,6 @@ $adminId    = $currentBarangayAdminId;
 $errors  = [];
 $success = '';
 
-// ---- Handle form submissions (add / update / delete) ----
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $formAction = $_POST['form_action'] ?? '';
 
